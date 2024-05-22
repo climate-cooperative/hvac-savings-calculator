@@ -1,13 +1,19 @@
-import React, {FC} from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import ImageButton from '../ImageButton';
 import PopupHint from '../PopupHint';
 import Typography from '@mui/material/Typography';
+import { SvgIconTypeMap } from '@mui/material/SvgIcon';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
 interface ImageQuestionProps {
   question: string;
-  content: Array<{ values: object | string, label: string, icon: SvgIconComponent | FC}>;
-  state?: string | string[];
-  setState: React.Dispatch<React.SetStateAction<string | string[]>>;
+  content: Array<{ 
+    values: string | Object, 
+    label: string, 
+    icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>
+  }>;
+  state?: any;
+  setState: Dispatch<SetStateAction<any>>;
   label?: string | null;
   popup?: string | null;
   selectMultiple?: boolean;
@@ -20,22 +26,9 @@ const ImageQuestion: React.FC<ImageQuestionProps> = ({
   setState,
   label = null,
   popup = null,
-  selectMultiple = false
 }) => {
-  const handleImageClick = (item: string) => {
-    if (selectMultiple) {
-      // If selectMultiple is true, toggle the selection of the clicked image
-      if (Array.isArray(state) && state.includes(item)) {
-        setState(state.filter((i) => i !== item));
-      } else if (item === 'Not Sure' || (Array.isArray(state) && state.includes('Not Sure'))) {
-        setState([item]);
-      } else {
-        setState((prev) => [...prev, item]);
-      }
-    } else {
-      // If selectMultiple is false, set the clicked image as the only selected image
-      setState(item);
-    }
+  const handleImageClick = (item: any) => {
+    setState(item);
   };
 
   return (

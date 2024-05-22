@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import TextQuestion from '../TextQuestion';
 
 interface ZipcodeProps {
-  zipcode: string;
-  setZipcode: React.Dispatch<React.SetStateAction<string>>;
+  zipcode: number;
+  setZipcode: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Zipcode: FC<ZipcodeProps> = ({ zipcode, setZipcode }) => {

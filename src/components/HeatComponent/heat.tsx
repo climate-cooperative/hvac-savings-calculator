@@ -1,26 +1,24 @@
-import React,{ useEffect } from 'react';
+import { Dispatch, FC, useEffect, SetStateAction } from 'react';
 import ImageQuestion from '../ImageQuestion';
 import { Fireplace } from '@mui/icons-material';
 import { furnace, floor, raidant, air_source, geothermal, boiler, space_heater, stove } from './svgs';
-
-interface IconProps {
-  color: string;
-}
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { SvgIconTypeMap } from '@mui/material';
 
 interface HeatOption {
   values: string;
   label: string;
-  icon: React.FC<IconProps>;
+  icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
 }
 
 interface HeatProps {
   heat: string;
-  setHeat: (value: string) => void;
+  setHeat: Dispatch<SetStateAction<string>>;
   source: string;
 }
 
 
-const Heat: React.FC<HeatProps> = ({ heat, setHeat, source }) => {
+const Heat: FC<HeatProps> = ({ heat, setHeat, source }) => {
   const Electricity: HeatOption[] = [
     { values: 'Electric Baseboard Heating', label: 'Baseboard', icon: floor },
     { values: 'Electric Boiler / Radiator', label: 'Boiler / Radiator', icon: boiler },

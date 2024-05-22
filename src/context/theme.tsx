@@ -53,15 +53,15 @@ let theme = createTheme({
             backgroundColor: '#008080' // teal
           },
         },
-        // Define a new style
-        imageButton: {
-          fontSize: 'calc(0.5rem + 0.5vw)',
-          width: '200px', // Increased width
-          height: '200px', // Increased height
-          // stack content on top of each other
-          flexDirection: 'column',
-          justifyContent: 'center'
-        },
+        // // Define a new style
+        // imageButton: {
+        //   fontSize: 'calc(0.5rem + 0.5vw)',
+        //   width: '200px', // Increased width
+        //   height: '200px', // Increased height
+        //   // stack content on top of each other
+        //   flexDirection: 'column',
+        //   justifyContent: 'center'
+        // },
       },
       defaultProps: {
         variant: 'contained'

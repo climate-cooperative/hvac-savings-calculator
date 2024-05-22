@@ -1,15 +1,16 @@
-import React, { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import Button from '@mui/material/Button';
-import { SvgIconComponent } from '@mui/icons-material';
+import { SvgIconTypeMap } from '@mui/material/SvgIcon';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
 interface Content {
-  values: string;
+  values: any;
   label: string;
-  icon: SvgIconComponent;
+  icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>
 }
 
 interface ImageButtonProps {
-  key: string;
+  key: number;
   content: Content;
   selected: string | string[];
   setSelected: MouseEventHandler<HTMLButtonElement>;
@@ -17,7 +18,7 @@ interface ImageButtonProps {
 
 const ImageButton: FC<ImageButtonProps> = ({ key, content, selected, setSelected }) => {
   const isSelected = Array.isArray(selected)
-    ? selected.map(JSON.stringify).includes(JSON.stringify(content.values))
+    ? selected.includes(content.values)
     : JSON.stringify(selected) === JSON.stringify(content.values);
 
   const color = isSelected ? 'secondary' : 'primary';
@@ -41,7 +42,7 @@ const ImageButton: FC<ImageButtonProps> = ({ key, content, selected, setSelected
         }
       }}
     >
-      <content.icon style={{ fontSize: '50px' }} color={iconColor}/>
+      <content.icon component="svg" style={{fontSize: "50px", color: iconColor}}/>
       <div>{content.label}</div>
     </Button>
   );

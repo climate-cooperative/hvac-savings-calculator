@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import TextQuestion from '../TextQuestion';
 
 interface SqrFeetProps {
-  sqrfeet: string;
-  setSqrfeet: React.Dispatch<React.SetStateAction<string>>;
+  sqrfeet: number;
+  setSqrfeet: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const SqrFeet: FC<SqrFeetProps> = ({ sqrfeet, setSqrfeet }) => {

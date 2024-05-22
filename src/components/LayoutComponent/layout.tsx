@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import ImageQuestion from '../ImageQuestion';
 import { Icon_1Story, Icon_1Story_1Basement, Icon_2Story, Icon_2Story_1Basement, Icon_1Story_halfBasement } from './svgs';
-import { IconProps } from '@mui/material';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { SvgIconTypeMap } from '@mui/material';
 
 interface LayoutValues {
   stories: number;
@@ -11,7 +12,7 @@ interface LayoutValues {
 interface HomeLayout {
   values: LayoutValues;
   label: string;
-  icon: FC<IconProps>;
+  icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
 }
 
 interface LayoutProps {

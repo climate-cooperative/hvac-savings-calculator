@@ -9,17 +9,17 @@ interface TextQuestionProps {
   subtext?: string | null;
   popup?: string | null;
   label: string;
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  value: number;
+  setValue: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const TextQuestion: React.FC<TextQuestionProps> = ({ question, subtext = null, popup = null, label, value, setValue }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
+    const inputValue =  event.target.value;
     if (isNaN(Number(inputValue)) || Number(inputValue) < 0) {
       return;
     }
-    setValue(inputValue);
+    setValue(Number(inputValue));
   };
 
   return (

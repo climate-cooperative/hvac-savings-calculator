@@ -1,9 +1,9 @@
-import React from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import SimpleQuestion from '../SimpleQuestion';
 
 interface HasAirCondProps {
   hasAirCond: string;
-  setHasAirCond: (value: string) => void;
+  setHasAirCond: Dispatch<SetStateAction<string>>;
 }
 
 const HasAirCond: React.FC<HasAirCondProps> = (props) => {
